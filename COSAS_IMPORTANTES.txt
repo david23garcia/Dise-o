@@ -1,0 +1,3 @@
+-Direccion una clase independiente y que se añada al registrase.
+-Direccion de envio puede ser distinta a la que tiene el perfil.
+-Incluir Nombre y Apellidos en el perfil de usuario.
