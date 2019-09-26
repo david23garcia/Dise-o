@@ -1,0 +1,36 @@
+https://firebase.google.com/docs/firestore/data-model?hl=es-419
+
+Documentos: 
+	- Json basicos con la información tipo (objeto).
+	- Nombre es el id y es unico.
+Colecciones: 
+	- Conjuntos de Documentos. 
+	- No puede contener otra cosa que no sea un documento.
+Subcolecciones:
+	- Colecciones dentro de Documentos.
+	- Si se borra el Documento, la subcoleccion sigue existiendo.
+	- Como es una coleccion, es un conjunto de documentos.
+
+Cloud Firestore (Archivos/Imagenes)
+https://firebase.google.com/docs/storage/?hl=es-419
+https://firebase.google.com/docs/storage/web/upload-files?hl=es-419
+https://medium.com/learn-ionic-framework/c%C3%B3mo-subir-una-imagen-a-firebase-desde-una-aplicaci%C3%B3n-de-ionic-77b93f9d383b
+https://code.tutsplus.com/es/tutorials/firebase-for-android-file-storage--cms-27376
+(la estructura se parece bastante a lo hecho en Moviles con child y demas)
+
+Hay que guardar los archivos en bytes NO URLS
+
+PASOS GUARDAR:
+		- Normalizar URL.
+		- Interactuar con Firebase:
+   				- Crear/Seleccionar Nodo Padre: Será el nombre del Comercio (storage)
+   				- Crear/Seleccionar el Hijo: si es articulo o es informativa (storageRef.child)
+   				- Transformar URL a base 64.
+   				- Escribir URL (putString)
+
+Lo suyo sería crear una funcion genérica de interactuar donde le pasemos el tipo (articulo o info) y el comercio
+y en funcion de esto guardar una cosa u otra.
+
+PASOS CARGAR:
+
+

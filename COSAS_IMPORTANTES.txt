@@ -1,3 +1,35 @@
--Direccion una clase independiente y que se añada al registrase.
--Direccion de envio puede ser distinta a la que tiene el perfil.
--Incluir Nombre y Apellidos en el perfil de usuario.
+
+IDEA GENERAL PARA PRESENTAR EL PROYECTO: Una ciudad pequeña solicita crear una aplicación para que los comercios locales puedan publicar sus articulos y que estos puedan ser vendidos a partir de esta aplicación.
+
+Cosas que Hacer:
+	- Maquetas. OK
+	- Revisar Diagrama de Clases.
+	- Revisar Vuetify para comproabr que todo se puede hacer y son componentes que existen. OK
+	- Revisar Ings y Pings documetno de diseño. OK
+	- Revisar Documentacion Firebase como funciona. OK
+	- Identificar TODA la funcionalidad de la app.
+	- Unificar funcionalidad similar.
+	- Esquema con las funciones necesarias que hay hacer.
+	- Diagrama de Secuencia en funcion al Esquema.
+
+Diseño: Decidir bien el "diagrama de clases" con los objetos que vamos a tener en la aplicación. La iteración entre los objetos.
+Intentar hacer un diagrama del modelo MVC para buscar las distintas clases/modulos que vamos a implementar y que va a tener cada uno. 
+
+Funcionalidad Basica APP:
+	- Login/Logout. AUTH
+	- Registro. Registro de Usuarios lo da AUT, el de Comercio hay que crearlo.
+	- Insertar Articulos. INSERT en Firebase
+	- Modificar Articulos. Update en Firebase
+	- Comprar. Metodo nuevo modificando distintos documentos y colecciones
+	- Visualizar. Get de Firebase
+	- Gestion Imganes. (Cloud Firebase)
+	- Motor de Busqueda. (Get by en firebase)
+	- Ordenacion ??.
+
+IDEAS:
+	- Crud/DAO generico donde le pase la info y el tipo y se guardara, eliminara, actualizara el Firebase
+	- Hacer borrado Logico. (incluir una variable isDisable)
+
+
+COSAS QUE PREGUNTAR:
+	- Usuario de Firebase puede tener todos los campos que yo quiera? o solo los que me estipula la app? 
