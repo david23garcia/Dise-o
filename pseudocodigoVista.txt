@@ -1,0 +1,597 @@
+********************************************* registroComercio *********************************************
+
+Nombre: registerShop
+Parameters: Shop: Json
+Return: view
+
+registerShop(shop):
+	Crear el objecto (si no viene ya creado)
+
+	Obtener la ruta de acceso a la coleccion -> db.collection('shops')
+
+	llamar a register(object, rutaAcceso, tipo)
+
+	si register == OK: return Vista OK
+	else: return Vista KO
+
+************************************************************************************************************
+
+********************************************* registroUsuario **********************************************
+
+Nombre: registerUser
+Parameters: user: Json
+Return: view
+
+registerUser(user):
+	Crear el objecto (si no viene ya creado)
+
+	Obtener la ruta de acceso a la coleccion -> db.collection('users')
+
+	llamar a register(object, rutaAcceso, tipo)
+
+	si register == OK: return Vista OK
+	else: return Vista KO
+
+************************************************************************************************************
+
+********************************************* registroEmpleado *********************************************
+
+Nombre: registerEmployee
+Parameters: user: Json
+Return: view
+
+registerEmployee(object):
+	Crear el objecto (si no viene ya creado)
+
+	Obtener la ruta de acceso a la coleccion -> db.collection('users')
+
+	llamar a register(object, rutaAcceso, tipo)
+
+	si register == OK: return Vista OK
+	else: return Vista KO
+
+************************************************************************************************************
+
+********************************************* registroArticulo *********************************************
+
+Nombre: addArticle
+Parameters: article: Json
+Return: view
+
+addArticle(article):
+	Crear el objecto (si no viene ya creado)
+
+	Obtener la ruta de acceso a la coleccion -> db.collection('shops/{idComercio}/articles')
+
+	llamar a register(object, rutaAcceso, tipo)
+
+	si register == OK: return Vista OK
+	else: return Vista KO
+
+************************************************************************************************************
+
+********************************************* registroComentario ********************************************
+
+Nombre: addComment
+Parameters: comment: Json
+			article: Json
+Return: view
+
+addComment(comment):
+	Crear el objecto (si no viene ya creado)
+
+	Obtener la ruta de acceso a la coleccion -> db.collection('shops/{idComercio}/articles/{idAritulo}/comments')
+
+	llamar a register(object, rutaAcceso, tipo)
+
+	si register == OK: return Vista OK
+	else: return Vista KO
+
+************************************************************************************************************
+
+********************************************* registroValoración *******************************************
+
+Nombre: addRate
+Parameters: rate: Json
+			article: Json
+Return: view
+
+addComment(article):
+	Crear el objecto (si no viene ya creado)
+
+	Obtener la ruta de acceso a la coleccion -> db.collection('shops/{idComercio}/articles/{idAritulo}/rates')
+
+	llamar a register(object, rutaAcceso, tipo)
+
+	si register == OK: return Vista OK
+	else: return Vista KO
+
+************************************************************************************************************
+
+********************************************* registroMetdoEnvio *******************************************
+
+Nombre: addShippingMethod
+Parameters: shippingMethod: Json
+Return: view
+
+addComment(shippingMethod):
+	Crear el objecto (si no viene ya creado)
+
+	Obtener la ruta de acceso a la coleccion -> db.collection('shops/{idComercio}/shippingMethods')
+
+	llamar a register(object, rutaAcceso, tipo)
+
+	si register == OK: return Vista OK
+	else: return Vista KO
+
+************************************************************************************************************
+
+******************************************** modificarPassUsuario ******************************************
+
+Nombre: updatePassword
+Parameters: password: Json
+Return: view
+
+updatePassword(password):
+	Crear el objecto (si no viene ya creado)
+
+	Obtener la ruta de acceso a la coleccion -> db.collection('users')
+
+	llamar a update(object, rutaAcceso, userID, type)
+
+	si update == OK: return Vista OK
+	else: return Vista KO
+
+************************************************************************************************************
+
+******************************************* modificarPerfilUsuario *****************************************
+
+Nombre: updateUser
+Parameters: user: Json
+Return: view
+
+updateUser(user):
+	Crear el objecto (si no viene ya creado)
+
+	Obtener la ruta de acceso a la coleccion -> db.collection('users')
+
+	llamar a update(object, rutaAcceso, userID, type)
+
+	si update == OK: return Vista OK
+	else: return Vista KO
+
+************************************************************************************************************
+
+******************************************* modificarPerfilComercio ****************************************
+
+Nombre: updateShop
+Parameters: shop: Json
+Return: view
+
+updateShop(shop):
+	Crear el objecto (si no viene ya creado)
+
+	Obtener la ruta de acceso a la coleccion -> db.collection('shops')
+
+	llamar a update(object, rutaAcceso, shopID, type)
+
+	si update == OK: return Vista OK
+	else: return Vista KO
+
+************************************************************************************************************
+
+*********************************************** bloquearUsuario ********************************************
+
+Nombre: bloquedUser
+Parameters: userID
+Return: view
+
+bloquedUser(userID):
+	Crear el objecto (si no viene ya creado)
+
+	Obtener la ruta de acceso a la coleccion -> db.collection('users')
+
+	llamar a update(object, rutaAcceso, userID, type)
+
+	si update == OK: return Vista OK
+	else: return Vista KO
+
+************************************************************************************************************
+
+********************************************** bloquearComercio ********************************************
+
+Nombre: bloquedShop
+Parameters: shopID
+Return: view
+
+bloquedShop(shopID):
+	Crear el objecto (si no viene ya creado)
+
+	Obtener la ruta de acceso a la coleccion -> db.collection('shops')
+
+	llamar a update(object, rutaAcceso, shopID, type)
+
+	si update == OK: return Vista OK
+	else: return Vista KO
+
+************************************************************************************************************
+
+***************************************** modificarCantidadArticulos ***************************************
+
+Nombre: updateNumerArticles
+Parameters: article
+		  : number
+Return: view
+
+updateNumerArticles(article, number):
+	Crear el objecto (si no viene ya creado)
+
+	Obtener la ruta de acceso a la coleccion -> db.collection('shops/{idComercio}/articles')
+
+	llamar a update(object, rutaAcceso, articleID, type)
+
+	si update == OK: return Vista OK
+	else: return Vista KO
+
+************************************************************************************************************
+
+******************************************** modificarEstadoPedido *****************************************
+
+Nombre: updateOrderState
+Parameters: state
+		  : order
+Return: view
+
+updateOrderState(order, state):
+	Crear el objecto (si no viene ya creado)
+
+	Obtener la ruta de acceso a la coleccion -> db.collection('shops/{idComercio}/orders')
+
+	llamar a update(object, rutaAcceso, orderID, type)
+
+	si update == OK: return Vista OK
+	else: return Vista KO
+
+************************************************************************************************************
+
+******************************************* modificarPrecioArticulo ****************************************
+
+Nombre: updateNumerArticles
+Parameters: article
+		  : price
+Return: view
+
+updateNumerArticles(article, price):
+	Crear el objecto (si no viene ya creado)
+
+	Obtener la ruta de acceso a la coleccion -> db.collection('shops/{idComercio}/articles')
+
+	llamar a update(object, rutaAcceso, articleID, type)
+
+	si update == OK: return Vista OK
+	else: return Vista KO
+
+************************************************************************************************************
+
+************************************* modificarCantidadArticulosCarrito ************************************
+
+Nombre: updateNumerArticlesBasket
+Parameters: article
+		  : number
+Return: view
+
+updateNumerArticlesBasket(article, number):
+	Crear el objecto (si no viene ya creado)
+
+	Obtener la ruta de acceso a la coleccion -> db.collection('users/{idUsuario}/baskets/{idCarrito}/articlesBasket')
+
+	llamar a update(object, rutaAcceso, articleID, type)
+
+	si update == OK: return Vista OK
+	else: return Vista KO
+
+************************************************************************************************************
+
+****************************************** visualizarPerfilUsuario *****************************************
+
+Nombre: visualizeUser
+Parameters:
+Return: view
+
+visualizeUser():
+
+	Obtener la ruta de acceso a la coleccion -> db.collection('users')
+
+	llamar a get(coleccion, userID)
+
+	si update == OK: return Vista OK
+	else: return Vista KO
+
+************************************************************************************************************
+
+****************************************** visualizarPerfilComercio ****************************************
+
+Nombre: visualizeShop
+Parameters:
+Return: view
+
+visualizeShop():
+
+	Obtener la ruta de acceso a la coleccion -> db.collection('shops')
+
+	llamar a get(coleccion, shopID)
+
+	si update == OK: return Vista OK
+	else: return Vista KO
+
+************************************************************************************************************
+
+********************************************* visualizarArticulo *******************************************
+
+Nombre: visualizeArticle
+Parameters: article
+Return: view
+
+visualizeArticle():
+
+	Obtener la ruta de acceso a la coleccion -> db.collection('shops/{comercioID}/articles')
+
+	llamar a get(coleccion, articleID)
+
+	si update == OK: return Vista OK
+	else: return Vista KO
+
+************************************************************************************************************
+
+********************************************* visualizarCarrito *******************************************
+
+Nombre: visualizeBasket
+Parameters: basket
+Return: view
+
+visualizeBasket():
+
+	Obtener la ruta de acceso a la coleccion -> db.collection('users/{usuarioID}/baskets')
+
+	llamar a get(coleccion, basketID)
+
+	si update == OK: return Vista OK
+	else: return Vista KO
+
+************************************************************************************************************
+
+********************************************* visualizarOrderUser ******************************************
+
+Nombre: visualizeOrder
+Parameters: order
+Return: view
+
+visualizeOrder():
+
+	Obtener la ruta de acceso a la coleccion -> db.collection('users/{usuarioID}/orders')
+
+	llamar a get(coleccion, orderID)
+
+	si update == OK: return Vista OK
+	else: return Vista KO
+
+************************************************************************************************************
+
+********************************************* visualizarOrderShop ******************************************
+
+Nombre: visualizeOrder
+Parameters: order
+Return: view
+
+visualizeOrder():
+
+	Obtener la ruta de acceso a la coleccion -> db.collection('shops/{comercioID}/orders')
+
+	llamar a get(coleccion, orderID)
+
+	si update == OK: return Vista OK
+	else: return Vista KO
+
+************************************************************************************************************
+
+******************************************* visualizarAllOrderShop *****************************************
+
+Nombre: visualizeAllOrder
+Parameters: 
+Return: view
+
+visualizeAllOrder():
+
+	Obtener la ruta de acceso a la coleccion -> db.collection('shops/{comercioID}/orders')
+
+	llamar a get(coleccion)
+
+	si update == OK: return Vista OK
+	else: return Vista KO
+
+************************************************************************************************************
+
+******************************************* visualizarAllOrderUser *****************************************
+
+Nombre: visualizeAllOrder
+Parameters: 
+Return: view
+
+visualizeAllOrder():
+
+	Obtener la ruta de acceso a la coleccion -> db.collection('user/{usuarioID}/orders')
+
+	llamar a get(coleccion)
+
+	si update == OK: return Vista OK
+	else: return Vista KO
+
+************************************************************************************************************
+
+**************************************** visualizarAllArticulosTienda **************************************
+
+Nombre: visualizeAllArticles
+Parameters: 
+Return: view
+
+visualizeAllArticles():
+
+	Obtener la ruta de acceso a la coleccion -> db.collection('shops/{comercioID}/articles')
+
+	llamar a get(coleccion)
+
+	si update == OK: return Vista OK
+	else: return Vista KO
+
+************************************************************************************************************
+
+******************************************* visualizarAllArticulos *****************************************
+
+Nombre: visualizeAllArticles
+Parameters: 
+Return: view
+
+visualizeAllArticles
+
+	llamar a get()
+
+	si update == OK: return Vista OK
+	else: return Vista KO
+
+************************************************************************************************************
+
+******************************************* visualizarAllComercios *****************************************
+
+Nombre: visualizeAllShops
+Parameters: 
+Return: view
+
+visualizeAllShops():
+
+	Obtener la ruta de acceso a la coleccion -> db.collection('shops')
+
+	llamar a get(coleccion)
+
+	si update == OK: return Vista OK
+	else: return Vista KO
+
+************************************************************************************************************
+
+******************************************* visualizarAllUsuarios *****************************************
+
+Nombre: visualizeAllUsers
+Parameters: 
+Return: view
+
+visualizeAllUsers():
+
+	Obtener la ruta de acceso a la coleccion -> db.collection('users')
+
+	llamar a get(coleccion)
+
+	si update == OK: return Vista OK
+	else: return Vista KO
+
+************************************************************************************************************
+
+********************************************** eliminarUsuario ********************************************
+
+Nombre: deleteUser
+Parameters: 
+Return: view
+
+deleteUser():
+
+	Obtener la ruta de acceso a la coleccion -> db.collection('users')
+
+	llamar a update(object, rutaAcceso, userID, type)
+
+	si update == OK: return Vista OK
+	else: return Vista KO
+
+************************************************************************************************************
+
+********************************************** eliminarComercio ********************************************
+
+Nombre: deleteShop
+Parameters: 
+Return: view
+
+deleteShop():
+
+	Obtener la ruta de acceso a la coleccion -> db.collection('shops')
+
+	llamar a update(object, rutaAcceso, shopID, type)
+
+	si update == OK: return Vista OK
+	else: return Vista KO
+
+************************************************************************************************************
+
+********************************************** eliminarArticulo ********************************************
+
+Nombre: deleteArticle
+Parameters: 
+Return: view
+
+deleteArticle():
+
+	Obtener la ruta de acceso a la coleccion -> db.collection('shops/{comercioID}/articles')
+
+	llamar a update(object, rutaAcceso, articleID, type)
+
+	si update == OK: return Vista OK
+	else: return Vista KO
+
+************************************************************************************************************
+
+****************************************** eliminarArticuloCarrito *****************************************
+
+Nombre: deleteUser
+Parameters: 
+Return: view
+
+deleteUser():
+
+	Obtener la ruta de acceso a la coleccion -> db.collection('users/{userID}/baskets/{basketID}/articles')
+
+	llamar a update(object, rutaAcceso, articleID, type)
+
+	si update == OK: return Vista OK
+	else: return Vista KO
+
+************************************************************************************************************
+
+****************************************** eliminarArticuloCarrito *****************************************
+
+Nombre: deleteArticleInBasket
+Parameters: 
+Return: view
+
+deleteArticleInBasket():
+
+	Obtener la ruta de acceso a la coleccion -> db.collection('shops/{shopID}/shippingMethods')
+
+	llamar a update(object, rutaAcceso, shippingMethodID, type)
+
+	si update == OK: return Vista OK
+	else: return Vista KO
+
+************************************************************************************************************
+
+********************************************** eliminarPedido *********************************************
+
+Nombre: deleteOrder
+Parameters: 
+Return: view
+
+deleteOrder():
+
+	Obtener la ruta de acceso a la coleccion -> db.collection('shops/{shopID}/shippingMethods')
+
+	llamar a delete(object, rutaAcceso, type)
+
+	si update == OK: return Vista OK
+	else: return Vista KO
+
+************************************************************************************************************

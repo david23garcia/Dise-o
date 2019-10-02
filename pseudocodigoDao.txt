@@ -1,0 +1,67 @@
+************************************************* insert *************************************************
+
+Nombre: insert
+Parameters: object: Json
+		    collection: refCollection
+Return: id generado.
+
+inser(object, collection):
+
+	collection.add(object)
+
+	return docRef.id
+
+************************************************************************************************************
+
+************************************************* update *************************************************
+
+Nombre: update
+Parameters: object: Json
+		    collection: refCollection
+Return: ok/error true/false
+
+update(object, collection, objectID):
+
+	var docRef = collection.doc(ObjectID);
+	dorRef.update(object)
+
+************************************************************************************************************
+
+************************************************* selectByID *************************************************
+
+Nombre: selectByID
+Parameters: id: Json
+		    collection: refCollection
+Return: Objeto Json del tipo que sea
+
+selectByID(object, collection, objectID):
+
+	return collection.where("id", "==", objectID).get()
+
+************************************************************************************************************
+
+************************************************* selectAll *************************************************
+
+Nombre: selectByID
+Parameters: id: Json
+		    collection: refCollection
+Return: lista de Json con todos los objetos
+
+selectByIDcollection, objectID):
+
+	return collection.get()
+
+************************************************************************************************************
+
+************************************************** delete **************************************************
+
+Nombre: delete
+Parameters: id: Json
+		    collection: refCollection
+Return: nada/si acaso una excepcion para controlar en ver que muestro
+
+delete(collection, objectID):
+
+	return collection.doc(objectID).delete()
+
+************************************************************************************************************

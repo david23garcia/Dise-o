@@ -1,0 +1,175 @@
+************************************************* registro *************************************************
+
+Nombre: register
+Parameters: object: Json
+		    collection: refCollection
+		    type: string/double
+Return: id objeto insertado
+
+register(object, collection, type):
+	si user != credenciales con type: return KO
+
+	dao.insert(object, collection)
+
+	si insert == error: return KO
+	else return OK
+
+************************************************************************************************************
+
+************************************************ modificar ************************************************
+
+Nombre: update
+Parameters: object: Json
+		    collection: refCollection
+		    objectID: string/double
+		    type: string/double
+Return: oke/error true/false
+
+update(object, collection, type):
+	si user != credenciales con type: return KO
+
+	dao.update(object, collection, ObjectID)
+
+	si update == error: return KO
+	else return OK
+
+************************************************************************************************************
+
+********************************************** Visualizar **********************************************
+
+Nombre: selectAll
+Parameters: objectID: Json
+		    collection: refCollection
+Return: Objeto Json
+
+viewAll(object, collection, type):
+	si user != credenciales con type: return KO
+
+	dao.selectByID(collection, ObjectID)
+
+	si select == error: return KO
+	else return lista
+
+************************************************************************************************************
+
+********************************************** Visualizar **********************************************
+
+Nombre: select
+Parameters:
+		    collection: refCollection
+Return: Lista de Objetos
+
+view(object, collection, type):
+	si user != credenciales con type: return KO
+
+	dao.select(collection)
+
+	si insert == error: return KO
+	else return object
+
+************************************************************************************************************
+
+************************************************* Eliminar *************************************************
+
+Nombre: delete
+Parameters:
+		    collection: refCollection
+Return: Lista de Objetos
+
+view(object, collection, type):
+	si user != credenciales con type: return KO
+
+	dao.delete(collection)
+
+	si insert == error: return KO
+	else return OK
+
+************************************************************************************************************
+
+
+*************************************************** Pagar **************************************************
+
+Nombre: select
+Parameters:
+		    collection: refCollection
+Return: Error
+
+pay(carrito):
+	si user != credenciales con type, return KO
+	
+	lista[PedidosUsuario].
+
+	lista[ArticulosCarrito] carrito.articulosCarrito // consulta especial para devolver no solo los articulosCarrito si no los articulos en si (articulos carrito solo tienene el ID del articulo)
+
+	for articuloCarrito in lista[ArticulosCarrito]:
+		refCollection = db.collection('shops/{articuloCarrito.comercioID}/articles')
+		Articulo = select(refCollection, articuloPedido.idArticulo)
+
+		si(articulo.cantidad - articuloCarrito.cantidad < 0):  //Rstaurar como estaba antes
+			for pedidoUsuario in lista[PedidosUsuario]:																			//Para cada pedido que se va a realizar de cada tienda
+				refCollection = db.collection('shops/{articuloCarrito.comercioID}/order/{pedidoUsuario.pedidoID}/articles')			//recorremos todos los articulos para cambiar la cantidad
+				for article in selectAll(refCollection, pay):
+					update(json(Articulo.cantidad = Articulo.cantidad + articuloCarrito.cantidad), refCollection, pay)
+				refCollection = db.collection('shops/{articuloCarrito.comercioID}/order')											//Eliminamos el pedido de la tienda
+				delete(refCollection, pedidoUsuario.pedidoID)
+			RETURN ERROR
+
+		si existe pedido del comercio en lista[PedidosUsuario]:  //consulta shops/articuloCarrito.comercioID/orders/orderID
+			refCollection = db.collection('shops/{articuloCarrito.comercioID}/order/orderID')
+			update(new ArticuloPedido(), refCollection, pay)
+		si no: 
+			refCollection = db.collection('shops/{articuloCarrito.comercioID}/order')
+			register(new pedidoComercio(), refCollection, pay)
+			lista[PedidosUsuario].add(new pedidoUsuario())
+
+		refCollection = db.collection('shops/{articuloCarrito.comercioID}/articles')
+		update(json(Articulo.cantidad = Articulo.cantidad - articuloCarrito.cantidad), refCollection, pay)
+
+
+
+	for(pedidoUsuario in lista[PedidosUsuario]):
+		refCollection = db.collection('users/carrito.userID/order')
+		register(pedidoUsuario, refCollection, pay)
+
+	refCollection = db.collection('users/carrito.userID/baskets')
+
+	delete(refCollection, carrito.id)
+
+	return OK //control de errores en cada paso si existe error o no
+
+************************************************************************************************************
+
+****************************************** AgregarArticuloCarrito ******************************************
+
+Nombre: addArticleToBasket
+Parameters:
+		    user: user
+		    Articulo: articulo
+		    cantidad
+Return: ok/error
+
+addArticleToBasket(usuario, articulo, cantidad):
+	si user != credenciales con type, return KO
+
+	refCollection = db.collection('user/{ausuario.id}/basket')
+	
+	Carrito = select(refCollection).getFirst		//SOLO PUEDE HABER UN CARRITO POR PERSONA ACTIVO
+
+	si carrito == null
+		retunr register(new Carrito(), refCollection, add)
+
+	refCollection = db.collection('user/{ausuario.id}/basket/{basketID}/articlesBasket')
+
+	lista[ArticulosCarrito] = selectAll(refCollection)
+
+	si articulo existe en lista[ArticulosCarrito]:
+		refCollection = db.collection('user/{ausuario.id}/basket/{basketID}/articlesBasket/{articuloCarritoID}')
+		return update(objecto(articuloCarrito.cantidad++), refCollection, add)
+
+	refCollection = db.collection('user/{ausuario.id}/basket/{basketID}/articlesBasket')
+	return register(new ArticuloCarrito(), refCollection)
+
+************************************************************************************************************
+
+
+

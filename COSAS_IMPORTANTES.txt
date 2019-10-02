@@ -29,7 +29,76 @@ Funcionalidad Basica APP:
 IDEAS:
 	- Crud/DAO generico donde le pase la info y el tipo y se guardara, eliminara, actualizara el Firebase
 	- Hacer borrado Logico. (incluir una variable isDisable)
+	- Carritos solo puede haber uno activo, una vez se realice el pago, se finaliza y se convierte en pedido.
+	- Modelo 3 CAPAS: Vista, Servicio y DAO
+			- Vista: Nuxt/Vue.
+			- Servicio: Gestión de todo.
+			- DAO: Solo llamadas a Firebase.
+	- FUNCION PAGAR:
+		1. Recorrer todos los articulos del Carrito
+			1.1 Si el articulo.shopID existe en algun pedido de los creados -> insertar este articulo al pedido del comercio.
+		 	1.2 Si no, creamos el pedido del Comercio.
+		2. Añadimos todos los pedidos creados a la lista de pedidos del usuario.
+		3. Eliminamos el carrito (eliminacion fisica)
+
+
+
 
 
 COSAS QUE PREGUNTAR:
 	- Usuario de Firebase puede tener todos los campos que yo quiera? o solo los que me estipula la app? 
+	- Tokens de sesion para comprobar los roles?¿?¿
+
+FUNCIONALIDAD:
+	- Registrar/Añadir: 
+		- Comercio. OK
+		- Usuario. OK
+		- Empleado. OK
+		- Articulo. OK
+		- Comentario. OK
+		- Valoración. OK
+		- Metodo de Envio. OK
+	- Modificar Pass:
+		- Usuario. OK
+		- Empleado. OK
+	- Modificar/Bloquear:
+		- Comercio. OK
+		- Usuario. OK
+		- Empleado. OK
+	- Modificar Información:
+		- Usuario. OK
+		- Comercio. OK
+	- Modificar Otros:
+		- Cantidad Articulos. OK
+		- Estado Pedido. OK
+		- Precio Articulo. OK
+	- Visualizar:
+		- Perfil Usuario. OK
+		- Perfil Empleado. OK
+		- Comercio. OK
+		- Articulo. OK
+		- Carrito. OK
+		- Pedido. OK
+	- Delete (logico):
+		- Usuario. OK
+		- Comercio. OK
+		- Empleado. OK
+		- Articulo. OK
+		- Articulo Carrito. OK
+		- Metodo Envio. OK
+
+	- Pagar/Realizar Pedido.
+		- Crear Pedido. 
+		- Eliminar Carrito (No Logico).
+		- Seleccionar Metodo Envio.
+		- Modificar Articulos.
+	- Cancelar Pedido (No Logico). delete
+		- Eliminar Pedido.
+		- Modificar Articulos.
+	- Login/Logout -> Auth.
+	- Agregar Articulo al Carrito. OK
+	- Visualizar todos los Articulos. OK
+	- Visualizar todos los Articulos de una tienda. OK
+	- Visualizar todos los usuarios. OK
+	- visualizar todos los empleados de una tienda. OK
+
