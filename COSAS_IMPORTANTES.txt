@@ -26,6 +26,10 @@ Funcionalidad Basica APP:
 	- Motor de Busqueda. (Get by en firebase)
 	- Ordenacion ??.
 
+	https://firebase.google.com/docs/auth/web/password-auth?hl=es-419
+	https://firebase.google.com/docs/auth/admin/manage-sessions?hl=es-419
+	https://firebase.google.com/docs/auth/admin/create-custom-tokens?hl=es-419
+
 IDEAS:
 	- Crud/DAO generico donde le pase la info y el tipo y se guardara, eliminara, actualizara el Firebase
 	- Hacer borrado Logico. (incluir una variable isDisable)
@@ -33,7 +37,7 @@ IDEAS:
 	- Modelo 3 CAPAS: Vista, Servicio y DAO
 			- Vista: Nuxt/Vue.
 			- Servicio: Gestión de todo.
-			- DAO: Solo llamadas a Firebase.
+			- Repository: Solo llamadas a Firebase.
 	- FUNCION PAGAR:
 		1. Recorrer todos los articulos del Carrito
 			1.1 Si el articulo.shopID existe en algun pedido de los creados -> insertar este articulo al pedido del comercio.
@@ -41,13 +45,11 @@ IDEAS:
 		2. Añadimos todos los pedidos creados a la lista de pedidos del usuario.
 		3. Eliminamos el carrito (eliminacion fisica)
 
-
-
-
-
 COSAS QUE PREGUNTAR:
 	- Usuario de Firebase puede tener todos los campos que yo quiera? o solo los que me estipula la app? 
-	- Tokens de sesion para comprobar los roles?¿?¿
+	- Tokens de sesion para comprobar los roles?¿?¿ Como funciona esto con Firebase??????
+	- Por favor, una ayudita de como montar las sesiones y token en nuxt y firebase.
+	- Creamos ya el proyecto padre para meter los subproyectos? 
 
 FUNCIONALIDAD:
 	- Registrar/Añadir: 
@@ -102,3 +104,5 @@ FUNCIONALIDAD:
 	- Visualizar todos los usuarios. OK
 	- visualizar todos los empleados de una tienda. OK
 
+INFO NUXT
+https://github.com/i62navpm/Tutorial-Nuxt#que-nuxt-funciona

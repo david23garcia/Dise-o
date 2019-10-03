@@ -52,7 +52,7 @@ viewAll(object, collection, type):
 
 ************************************************************************************************************
 
-********************************************** Visualizar **********************************************
+************************************************ Visualizar ************************************************
 
 Nombre: select
 Parameters:
@@ -166,10 +166,34 @@ addArticleToBasket(usuario, articulo, cantidad):
 		refCollection = db.collection('user/{ausuario.id}/basket/{basketID}/articlesBasket/{articuloCarritoID}')
 		return update(objecto(articuloCarrito.cantidad++), refCollection, add)
 
-	refCollection = db.collection('user/{ausuario.id}/basket/{basketID}/articlesBasket')
+	refCollection = db.collection('user/{ausuario.id}/basket/{basketID}')
+	update(objecto(carrito.total = carrito.total+artticulo.precio), refCollection, add)
+	refCollection = db.collection('user/{ausuario.id}/basket/{basketID}/articlesInBasket')
 	return register(new ArticuloCarrito(), refCollection)
 
 ************************************************************************************************************
 
+************************************************** Login ***************************************************
 
+Nombre: login
+Parameters:
+		    email
+		    pass
+Return: token
 
+login(email, pass):
+	return login(email, pass)
+
+************************************************************************************************************
+
+************************************************** Logout **************************************************
+
+Nombre: logout
+Parameters: token
+Return: ok/error
+
+logout(token):
+	romper token
+	repository.logout()
+
+************************************************************************************************************

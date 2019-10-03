@@ -13,7 +13,7 @@ inser(object, collection):
 
 ************************************************************************************************************
 
-************************************************* update *************************************************
+************************************************* update **************************************************
 
 Nombre: update
 Parameters: object: Json
@@ -47,7 +47,7 @@ Parameters: id: Json
 		    collection: refCollection
 Return: lista de Json con todos los objetos
 
-selectByIDcollection, objectID):
+selectByID(collection, objectID):
 
 	return collection.get()
 
@@ -63,5 +63,30 @@ Return: nada/si acaso una excepcion para controlar en ver que muestro
 delete(collection, objectID):
 
 	return collection.doc(objectID).delete()
+
+************************************************************************************************************
+
+************************************************** login ***************************************************
+
+Nombre: login
+Parameters: email
+		    pass
+Return: token
+
+login(email, pass):
+
+	firebase.auth().signInWithEmailAndPassword(email, password)
+
+************************************************************************************************************
+
+************************************************** logout ***************************************************
+
+Nombre: logout
+Parameters: 
+Return: 
+
+logout():
+
+	firebase.auth().signOut()
 
 ************************************************************************************************************
